@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+</head>
+<body>
+	<section>
+		<div class="card mr-3 ml-3 mt-2">
+			<div class="card-body text-center">
+				<form action="">
+					<input type="text"  class="form-control" placeholder="Search your contact"/>
+					&nbsp;
+					<input class="btn btn-primary mt-3" type="submit" value="Search" />
+					&nbsp;
+					<input class="btn btn-danger mt-3" type="button" value="Clear" onclick="clearFilter()"/>
+				</form>
+			</div>
+		</div>
+				<div class="card mr-3 ml-3 mt-2">
+					<div class="card-body">
+						<!-- Table -->
+							<table class="table mt-3">
+								<thead>
+									<tr>
+										<th scope="col">#ID</th>
+										<th scope="col">Name</th>
+										<th scope="col">Email</th>
+										<th scope="col">Phone</th>
+										<th scope="col">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="c :${listContact}">
+										<th scope="row" th:text="${'SCM2021'+c.cId}"></th>
+										<td >
+											<img class="my_profile_pic" src="" th:src="@{'/image/'+${c.image}}" alt="profile photo" />
+											<span th:text="${c.name}"></span>
+										</td>
+										<td>
+											<a href="" th:href="@{'/user/'+${c.cId}}+'/contact'">
+												<span th:text="${c.email}"></span>
+											</a>
+										</td>
+										<td th:text="${c.phone}"></td>
+										<td>
+											<a th:href="@{'/user/'+${c.cId}}+'/contact'" class="btn btn-info  fas fa-eye"></a>
+											<a th:href="@{'/user/delete/'+${c.cId}}" class="btn btn-danger  fas fa-trash"></a>
+											<form method="post" th:action="@{'/user/update-contact/'+${c.cId}}" class="mt-1">
+												<button type="submit" class="btn btn-warning"><i class="fas fa-pen-alt"></i></button>
+											</form>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+					</div>
+				</div>
+				<script>
+					$(document).ready(() => {
+						$('.item').removeClass('active');
+						$('#search-link').addClass('active');
+					});
+				</script>
+	</section>
+</body>
+</html>

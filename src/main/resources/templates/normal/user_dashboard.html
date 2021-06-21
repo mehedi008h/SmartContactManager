@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+</head>
+<body>
+	<section>
+		<div class="card mr-3 ml-3">
+			<div class="card-body text-center">
+				<img width="300px" src="" th:src="@{/image/home.gif}" alt="" />
+			</div>
+		</div>
+		<div class="card mr-3 ml-3 mt-2">
+			<div class="card-body">
+				
+			</div>
+		</div>
+		<script>
+		$(document).ready(() => {
+			$('.item').removeClass('active');
+			$('#home-link').addClass('active');
+		});
+		</script>
+	</section>
+</body>
+</html>
