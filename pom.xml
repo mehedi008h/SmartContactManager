@@ -15,7 +15,7 @@
 	<name>ContactManagerDemo</name>
 	<description>Project for Contact manager</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
